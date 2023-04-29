@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class CanvasFunctions : MonoBehaviour
 {
     OptionsCanvas optsCanvas;
+    [SerializeField] AudioSource audioSource;
     private void Awake()
     {
         optsCanvas=FindObjectOfType<OptionsCanvas>(includeInactive:true);

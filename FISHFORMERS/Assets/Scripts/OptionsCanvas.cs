@@ -35,4 +35,10 @@ public class OptionsCanvas : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", sfxVolumeSlider.value);
         OnVolumeChange();
     }
+
+    private void OnEnable()
+    {
+        musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+    }
 }
