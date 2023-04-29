@@ -38,7 +38,7 @@ namespace Platformer
             if (Input.GetButton("Horizontal")) 
             {
                 moveInput = Input.GetAxis("Horizontal");
-                Vector3 direction = transform.right * moveInput;
+                Vector3 direction = transform.right.normalized * moveInput;
                 transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, movingSpeed * Time.deltaTime);
                 animator.SetInteger("playerState", 1); // Turn on run animation
             }
