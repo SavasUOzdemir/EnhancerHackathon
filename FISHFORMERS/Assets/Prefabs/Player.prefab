@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 252461757}
   m_Layer: 0
   m_Name: smallColider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &252461756
 Transform:
   m_ObjectHideFlags: 0
@@ -46,7 +46,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.27, y: 1.37}
+  m_Size: {x: 1.99, y: 1.01}
   m_Direction: 1
 --- !u!1 &613894246
 GameObject:
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 613894248}
   m_Layer: 0
   m_Name: largeColider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,14 +87,14 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613894246}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 7.93, y: 3.58}
   m_Direction: 1
 --- !u!1 &863369973
 GameObject:
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 863369975}
   m_Layer: 0
   m_Name: midlColider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,15 +135,15 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863369973}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
+  m_Size: {x: 6.34, y: 3.88}
+  m_Direction: 1
 --- !u!1 &1696732855
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 1696732857}
   m_Layer: 0
   m_Name: defaultCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,9 +202,10 @@ GameObject:
   m_Component:
   - component: {fileID: 923518074105976658}
   - component: {fileID: 923518074105976657}
+  - component: {fileID: 587166421}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,6 +277,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!114 &587166421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923518074105976656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2260ef1b8234b043a76b8fe24f60699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 52c49daea70ffe6449e855c419569dde, type: 3}
+  - {fileID: 21300000, guid: 3c93c4fefa631a64ab10602a3d621ee1, type: 3}
+  - {fileID: 21300000, guid: 7feab10663211fa43a3cb4471b03e395, type: 3}
+  - {fileID: 21300000, guid: e964abcd4f976674ea1c0cf7dee243a6, type: 3}
 --- !u!1 &3079054594282529374
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,9 +307,10 @@ GameObject:
   - component: {fileID: 1533192385}
   - component: {fileID: 1533192384}
   - component: {fileID: 1533192386}
+  - component: {fileID: 1533192387}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,7 +347,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.1
@@ -378,8 +397,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485517e04087cdc48b33a00b9e8fe2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallCollider: {fileID: 0}
-  largeCollider: {fileID: 0}
-  midCollider: {fileID: 0}
-  defaultCollider: {fileID: 0}
-  rbMasses: 00000000000000000000000000000000
+  smallCollider: {fileID: 252461755}
+  largeCollider: {fileID: 863369973}
+  midCollider: {fileID: 613894246}
+  defaultCollider: {fileID: 1696732855}
+  rbMasses: 05000000010000000a0000001e000000
+--- !u!114 &1533192387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3079054594282529374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b23421d4b9b33f48ac278dec2c64f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 60
+  respawnCoordinates: {x: 0, y: 0}
