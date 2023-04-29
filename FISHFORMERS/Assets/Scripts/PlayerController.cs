@@ -8,12 +8,15 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private SpriteRenderer sr;
+    private OptionsCanvas optionsCanvas;
     Vector2 movement;
 
     private void Awake()
     {
         rb2d = GetComponentInChildren<Rigidbody2D>(includeInactive: false);
         sr = GetComponentInChildren<SpriteRenderer>(includeInactive: false);
+        optionsCanvas = FindObjectOfType<OptionsCanvas>(includeInactive: true);
+
     }
 
     private void FixedUpdate()
@@ -31,6 +34,7 @@ public class PlayerController : MonoBehaviour
         if (movement != Vector2.zero)
             transform.right = movement / moveSpeed;
         OrientSpriteRenderer();
+        if (Input.GetKeyDown(KeyCode.Escape)) { optionsCanvas.gameObject.SetActive(!optionsCanvas.gameObject.activeSelf); }
     }
 
     void OrientSpriteRenderer()
