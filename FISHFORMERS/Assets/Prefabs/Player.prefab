@@ -287,7 +287,6 @@ GameObject:
   - component: {fileID: 2442361652167154029}
   - component: {fileID: 1533192383}
   - component: {fileID: 1533192385}
-  - component: {fileID: 1533192382}
   - component: {fileID: 1533192384}
   - component: {fileID: 1533192386}
   m_Layer: 0
@@ -354,26 +353,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3.27, y: 1.37}
   m_Direction: 1
---- !u!95 &1533192382
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3079054594282529374}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1533192384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,3 +378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485517e04087cdc48b33a00b9e8fe2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smallCollider: {fileID: 0}
+  largeCollider: {fileID: 0}
+  midCollider: {fileID: 0}
+  defaultCollider: {fileID: 0}
+  rbMasses: 00000000000000000000000000000000

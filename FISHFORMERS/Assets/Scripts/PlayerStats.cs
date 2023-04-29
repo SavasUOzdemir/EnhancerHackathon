@@ -11,8 +11,8 @@ public class PlayerStats : MonoBehaviour
     TransformationHandler handler;
     Coroutine transformationCoroutine;
 
-    int transformationTimer = 60;
-    int defaultTransformationTimer = 60;
+    int transformationTimer = 10;
+    int defaultTransformationTimer = 10;
 
     public delegate void HitPointsChangeDelegate();
     public event HitPointsChangeDelegate hitPointsChange;
