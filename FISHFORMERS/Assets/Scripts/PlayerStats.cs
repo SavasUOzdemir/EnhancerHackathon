@@ -18,7 +18,11 @@ public class PlayerStats : MonoBehaviour
     float damageReduction = 0f;
 
     //change when hit checkpoint
-    Vector2 respawnCoordinates;
+    [SerializeField]Vector2 respawnCoordinates;
+
+
+
+    public Vector2 RespawnCoordinates { get=>respawnCoordinates; set=>respawnCoordinates=value; }
     public int HitPoints
     {
         get => hitPoints;
@@ -40,6 +44,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         hitPointsChange();
+        RespawnCoordinates = gameObject.transform.position;
     }
 
     // Update is called once per frame
