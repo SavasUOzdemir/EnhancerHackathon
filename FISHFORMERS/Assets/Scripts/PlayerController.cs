@@ -11,14 +11,12 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb2d = GetComponentInChildren<Rigidbody2D>(includeInactive:false);
     }
 
     private void FixedUpdate()
     {
-        //rb2d.AddForce(movement);
         rb2d.velocity = movement;
-
     }
     private void Update()
     {
