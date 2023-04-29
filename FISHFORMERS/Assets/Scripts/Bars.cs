@@ -16,15 +16,20 @@ public class Bars : MonoBehaviour
     private void OnEnable()
     {
         stats.hitPointsChange += UpdateHitPointBar;
+        stats.timerChange += UpdateTimer;
     }
     private void OnDisable()
     {
-        stats.hitPointsChange-= UpdateHitPointBar;
+        stats.hitPointsChange -= UpdateHitPointBar;
+        stats.timerChange -= UpdateTimer;
     }
 
     void UpdateHitPointBar()
     {
-        hitPointsSlider.value = 100* stats.HitPoints / stats.MaxHitPoints;
-        Debug.Log(hitPointsSlider.value);
+        hitPointsSlider.value = 100 * stats.HitPoints / stats.MaxHitPoints;
+    }
+    void UpdateTimer()
+    {
+        transformationSlider.value = 100 * stats.TransformationTimer / stats.MaxTransformationTimer;
     }
 }
