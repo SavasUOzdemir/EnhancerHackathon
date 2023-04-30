@@ -24,6 +24,8 @@ public class TransformationHandler : MonoBehaviour
     GameObject weapon;
 
     SpriteRenderer spriteRenderer;
+    Animator animator;
+    Transform _transform;
     CapsuleCollider2D capsuleCollider;
     PlayerStats playerStats;
     [SerializeField] int[] rbMasses = new int[4];
@@ -45,7 +47,8 @@ public class TransformationHandler : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         playerStats = GetComponent<PlayerStats>();
         weapon=GetComponentInChildren<Weapon>(includeInactive:true).gameObject;
-
+        animator = GetComponentInChildren<Animator>();
+        _transform = animator.GetComponent<Transform>();
     }
 
     void TransformCharacter(int transformNumber)
@@ -57,6 +60,8 @@ public class TransformationHandler : MonoBehaviour
             capsuleCollider.size = smallCollider.GetComponent<CapsuleCollider2D>().size;
             playerStats.Speed = smolFishSpeed;
             TransformationStarted();
+            animator.Play("Neon");
+            _transform.localScale = new Vector3(3f, 3f, 3f);
         }
         else if (transformNumber == 2)
         {
@@ -64,6 +69,8 @@ public class TransformationHandler : MonoBehaviour
             playerStats.DamageReduction = 2;
             playerStats.Speed = midFishSpeed;
             TransformationStarted();
+            animator.Play("Turtle");
+            _transform.localScale = new Vector3(6f, 6f, 6f);
         }
         else if (transformNumber == 3)
         {
@@ -71,6 +78,8 @@ public class TransformationHandler : MonoBehaviour
             playerStats.Speed = largeFishSpeed;
             Weapon.GetComponent<CapsuleCollider2D>().offset = new Vector2(5, 0);
             TransformationStarted();
+            animator.Play("Shark");
+            _transform.localScale = new Vector3(12f, 12f, 12f);
         }
         else
         {
@@ -87,5 +96,7 @@ public class TransformationHandler : MonoBehaviour
         playerStats.DamageReduction = 1;
         Weapon.SetActive(false);
         playerStats.Speed = defaultSpeed;
+        animator.Play("DefaultFish");
+        _transform.localScale = new Vector3(3f, 3f, 3f);
     }
 }

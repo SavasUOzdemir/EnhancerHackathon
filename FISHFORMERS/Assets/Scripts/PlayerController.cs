@@ -44,9 +44,9 @@ public class PlayerController : MonoBehaviour
         switch (rb2d.mass)
         {
             case 1: playerStats.Speed=transformationHandler.SmolFishSpeed; break;
-            case 5: playerStats.Speed = transformationHandler.DefaultFishSpeed; break;
-            case 10: playerStats.Speed = transformationHandler.MidFishSpeed; break;
-            case 30: playerStats.Speed = transformationHandler.LargeFishSpeed; break;
+            case 2: playerStats.Speed = transformationHandler.DefaultFishSpeed; break;
+            case 4: playerStats.Speed = transformationHandler.MidFishSpeed; break;
+            case 12: playerStats.Speed = transformationHandler.LargeFishSpeed; break;
             default:break;
         }
         transformationHandler.Weapon.SetActive(false);
@@ -71,8 +71,9 @@ public class PlayerController : MonoBehaviour
             transform.right = movement / moveSpeed;
         OrientSpriteRenderer();
         if (Input.GetKeyDown(KeyCode.Escape)) { optionsCanvas.gameObject.SetActive(!optionsCanvas.gameObject.activeSelf); }
-        if (Input.GetKey(KeyCode.Space) && rb2d.mass == 30 && canCharge)
+        if (Input.GetKey(KeyCode.Space) && rb2d.mass == 12 && canCharge)
         {
+            Debug.Log("buraya girdi");
             playerStats.Speed = 40;
             weaponActiveTimer = StartCoroutine(WeaponActiveCooldown(weaponTimer));
             canCharge = false;
