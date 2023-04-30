@@ -4,24 +4,60 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
+    bool canCharge = true;
 
+    private PlayerStats playerStats;
     private Rigidbody2D rb2d;
+    private TransformationHandler transformationHandler;
     private SpriteRenderer sr;
     private OptionsCanvas optionsCanvas;
+    Coroutine cooldownCoroutine;
+    Coroutine weaponActiveTimer;
     Vector2 movement;
+    int cooldownTimer = 2;
+    float weaponTimer = 0.3f;
 
     private void Awake()
     {
-        rb2d = GetComponentInChildren<Rigidbody2D>(includeInactive: false);
+        rb2d = GetComponent<Rigidbody2D>();
         sr = GetComponentInChildren<SpriteRenderer>(includeInactive: false);
         optionsCanvas = FindObjectOfType<OptionsCanvas>(includeInactive: true);
+        transformationHandler = GetComponent<TransformationHandler>();
+        playerStats=gameObject.GetComponent<PlayerStats>();
 
     }
 
     private void FixedUpdate()
     {
-        rb2d.velocity = movement;
+        if (!Input.GetKey(KeyCode.Space))
+        {
+            rb2d.velocity = movement;
+        }
+        
+    }
+
+    IEnumerator WeaponActiveCooldown(float weapontimer)
+    {
+        transformationHandler.Weapon.SetActive(true);
+        yield return new WaitForSeconds(weapontimer);
+        switch (rb2d.mass)
+        {
+            case 1: playerStats.Speed=transformationHandler.SmolFishSpeed; break;
+            case 5: playerStats.Speed = transformationHandler.DefaultFishSpeed; break;
+            case 10: playerStats.Speed = transformationHandler.MidFishSpeed; break;
+            case 30: playerStats.Speed = transformationHandler.LargeFishSpeed; break;
+            default:break;
+        }
+        transformationHandler.Weapon.SetActive(false);
+        StopCoroutine(weaponActiveTimer);
+
+    }
+    IEnumerator ChargeCooldown(int cooldowntimer)
+    {
+        yield return new WaitForSeconds(cooldowntimer);
+        yield return canCharge = true;
+        StopCoroutine(cooldownCoroutine);
     }
     private void Update()
     {
@@ -35,6 +71,14 @@ public class PlayerController : MonoBehaviour
             transform.right = movement / moveSpeed;
         OrientSpriteRenderer();
         if (Input.GetKeyDown(KeyCode.Escape)) { optionsCanvas.gameObject.SetActive(!optionsCanvas.gameObject.activeSelf); }
+        if (Input.GetKey(KeyCode.Space) && rb2d.mass == 30 && canCharge)
+        {
+            playerStats.Speed = 40;
+            weaponActiveTimer = StartCoroutine(WeaponActiveCooldown(weaponTimer));
+            canCharge = false;
+            cooldownCoroutine = StartCoroutine(ChargeCooldown(cooldownTimer));
+        }
+
     }
 
     void OrientSpriteRenderer()

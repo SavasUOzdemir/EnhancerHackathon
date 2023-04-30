@@ -336,6 +336,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1533192384, guid: e4ef054a9176f3e43bea8660da84666a, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533192384, guid: e4ef054a9176f3e43bea8660da84666a, type: 3}
+      propertyPath: rammingSpeed
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 1533192386, guid: e4ef054a9176f3e43bea8660da84666a, type: 3}
       propertyPath: defaultSpeed
       value: 10

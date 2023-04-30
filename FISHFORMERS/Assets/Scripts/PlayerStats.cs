@@ -21,7 +21,7 @@ public class PlayerStats : MonoBehaviour
     public event TimerChangeDelegate timerChange;
 
     int damageReduction = 1;
-    float speed = 5f;
+    float speed = 10f;
     bool inTransformation = false;
     public int DamageReduction { get=>damageReduction; set=>damageReduction=value; }
     public float Speed { get => speed; 

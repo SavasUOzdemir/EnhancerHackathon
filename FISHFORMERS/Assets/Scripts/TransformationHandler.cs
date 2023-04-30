@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class TransformationHandler : MonoBehaviour
@@ -29,6 +30,10 @@ public class TransformationHandler : MonoBehaviour
     public bool TransformOneEnabled { get => transformOneEnabled; set => transformOneEnabled = value; }
     public bool TransformTwoEnabled { get => transformTwoEnabled; set => transformTwoEnabled = value; }
     public bool TransformThreeEnabled { get => transformThreeEnabled; set => transformThreeEnabled = value; }
+    public float LargeFishSpeed { get=>largeFishSpeed;}
+    public float DefaultFishSpeed { get => defaultSpeed; }
+    public float MidFishSpeed { get => midFishSpeed; }
+    public float SmolFishSpeed { get => SmolFishSpeed; }
     public GameObject Weapon { get => weapon; }
     Rigidbody2D rb2D;
     public delegate void TransformationStartedDelegate();
@@ -65,7 +70,6 @@ public class TransformationHandler : MonoBehaviour
             capsuleCollider.size = largeCollider.GetComponent<CapsuleCollider2D>().size;
             playerStats.Speed = largeFishSpeed;
             Weapon.GetComponent<CapsuleCollider2D>().offset = new Vector2(5, 0);
-            Weapon.SetActive(true);
             TransformationStarted();
         }
         else
