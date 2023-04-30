@@ -69,6 +69,8 @@ public class PlayerStats : MonoBehaviour
     public int MaxTransformationTimer { get => defaultTransformationTimer; }
     void OnTransformationStarted()
     {
+        if (GetComponent<Rigidbody2D>().mass != 2)
+            StopAllCoroutines();
         if (transformationCoroutine != null)
         { 
             StopCoroutine(transformationCoroutine); 
@@ -88,6 +90,7 @@ public class PlayerStats : MonoBehaviour
             {
                 handler.gameObject.SendMessage("TransformCharacter",Int32.Parse("0"));
                 InTransformation = false;
+                StopCoroutine(transformationCoroutine);
                 yield break;
             }
         }

@@ -50,7 +50,22 @@ public class TransformationHandler : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         _transform = animator.GetComponent<Transform>();
     }
-
+    void PlayAnimBasedOnMass()
+    {
+        switch (rb2D.mass)
+        {
+            case 1: animator.Play("Neon"); break;
+            case 2: animator.Play("DefaultFish"); break;
+            case 4: animator.Play("Turtle"); break;
+            case 12: animator.Play("Shark"); break;
+            default:
+                break;
+        }
+    }
+    private void Start()
+    {
+        InvokeRepeating(nameof(PlayAnimBasedOnMass), .2f, .1f);
+    }
     void TransformCharacter(int transformNumber)
     {
         ResetToDefault();

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     Coroutine weaponActiveTimer;
     Vector2 movement;
     int cooldownTimer = 2;
-    float weaponTimer = 0.3f;
+    float weaponTimer = 0.6f;
 
     private void Awake()
     {
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
             transform.right = movement / moveSpeed;
         OrientSpriteRenderer();
         if (Input.GetKeyDown(KeyCode.Escape)) { optionsCanvas.gameObject.SetActive(!optionsCanvas.gameObject.activeSelf); }
-        if (Input.GetKey(KeyCode.Space) && rb2d.mass == 12 && canCharge)
+        if (Input.GetKeyDown(KeyCode.Space) && rb2d.mass == 12 && canCharge)
         {
             Debug.Log("buraya girdi");
             playerStats.Speed = 40;
