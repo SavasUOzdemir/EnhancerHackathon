@@ -11,6 +11,11 @@ public class TransformationHandler : MonoBehaviour
     bool transformTwoEnabled = false;
     bool transformThreeEnabled = false;
 
+    [SerializeField] float defaultSpeed;
+    [SerializeField] float smolFishSpeed;
+    [SerializeField] float midFishSpeed;
+    [SerializeField] float largeFishSpeed;
+
     [SerializeField] GameObject smallCollider;
     [SerializeField] GameObject largeCollider;
     [SerializeField] GameObject midCollider;
@@ -45,18 +50,20 @@ public class TransformationHandler : MonoBehaviour
         else if (transformNumber == 1)
         {
             capsuleCollider.size = smallCollider.GetComponent<CapsuleCollider2D>().size;
-            playerStats.Speed = 10f;
+            playerStats.Speed = smolFishSpeed;
             TransformationStarted();
         }
         else if (transformNumber == 2)
         {
             capsuleCollider.size = midCollider.GetComponent<CapsuleCollider2D>().size;
             playerStats.DamageReduction = 2;
+            playerStats.Speed = midFishSpeed;
             TransformationStarted();
         }
         else if (transformNumber == 3)
         {
             capsuleCollider.size = largeCollider.GetComponent<CapsuleCollider2D>().size;
+            playerStats.Speed = largeFishSpeed;
             Weapon.GetComponent<CapsuleCollider2D>().offset = new Vector2(5, 0);
             Weapon.SetActive(true);
             TransformationStarted();
@@ -75,6 +82,6 @@ public class TransformationHandler : MonoBehaviour
         capsuleCollider.size = defaultCollider.GetComponent<CapsuleCollider2D>().size;
         playerStats.DamageReduction = 1;
         Weapon.SetActive(false);
-        playerStats.Speed = 5;
+        playerStats.Speed = defaultSpeed;
     }
 }
