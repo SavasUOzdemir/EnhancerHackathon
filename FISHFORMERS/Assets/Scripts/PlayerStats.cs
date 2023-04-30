@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     int maxHitPoints = 100;
     TransformationHandler handler;
     Coroutine transformationCoroutine;
+    PlayerController controller;
 
     int transformationTimer = 10;
     int defaultTransformationTimer = 10;
@@ -19,9 +20,17 @@ public class PlayerStats : MonoBehaviour
     public delegate void TimerChangeDelegate();
     public event TimerChangeDelegate timerChange;
 
-    //we can make this 0.5f for turtle
-    float damageReduction = 0f;
+    int damageReduction = 1;
+    float speed = 5f;
     bool inTransformation = false;
+    public int DamageReduction { get=>damageReduction; set=>damageReduction=value; }
+    public float Speed { get => speed; 
+        set 
+        { 
+            speed = value;
+            controller.moveSpeed = Speed;
+        }
+    }
     public bool InTransformation
     {
         get => inTransformation;
@@ -38,10 +47,7 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         handler = GetComponent<TransformationHandler>(); 
-        //if (timerChange)
-        //{
-
-        //}
+        controller = GetComponent<PlayerController>();
     }
 
     public Vector2 RespawnCoordinates { get => respawnCoordinates; set => respawnCoordinates = value; }
@@ -92,6 +98,8 @@ public class PlayerStats : MonoBehaviour
     {
         hitPointsChange();
         RespawnCoordinates = gameObject.transform.position;
+        controller.moveSpeed = Speed;
+
     }
 
     // Update is called once per frame

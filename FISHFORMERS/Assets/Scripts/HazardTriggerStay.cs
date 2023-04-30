@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HazardTriggerStay : MonoBehaviour
 {
-    [SerializeField] int damageAmount = 1;
+    [SerializeField] int damageAmount = 2;
     [SerializeField] float damageInterval = 1f;
 
     PlayerStats playerStats;
@@ -35,7 +35,7 @@ public class HazardTriggerStay : MonoBehaviour
     {
         while (true)
         {
-            playerStats.HitPoints -= damageAmount;
+            playerStats.HitPoints -= damageAmount/playerStats.DamageReduction;
             yield return new WaitForSeconds(damageInterval);
         }
     }
