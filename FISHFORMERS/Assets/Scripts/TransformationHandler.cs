@@ -55,6 +55,7 @@ public class TransformationHandler : MonoBehaviour
         else
         {
             Debug.Log("invalid transformation value passed by transformer");
+            return;
         }
         spriteRenderer.sprite = spriteRenderer.gameObject.GetComponent<CharacterSprites>().sprites[transformNumber];
         rb2D.mass = rbMasses[transformNumber];

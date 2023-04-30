@@ -37,7 +37,11 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        handler = GetComponent<TransformationHandler>();
+        handler = GetComponent<TransformationHandler>(); 
+        //if (timerChange)
+        //{
+
+        //}
     }
 
     public Vector2 RespawnCoordinates { get => respawnCoordinates; set => respawnCoordinates = value; }
