@@ -21,8 +21,8 @@ public class BreakableObject : MonoBehaviour
             hitPoints--;
             if (hitPoints == 0)
             { Destroy(gameObject); return; }
-            color_b -= 255 / hitPoints;
-            color_g -= 255 / hitPoints;
+            color_b -= 255 / (hitPoints +1);
+            color_g -= 255 / (hitPoints +1);
             spriteRenderer.color = new Color(255, color_g, color_b);
         }
     }
