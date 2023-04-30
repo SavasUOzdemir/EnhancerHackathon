@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SplashScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GamePlay.unity
     guid: caf66839f507a054aa2f3eb3d170b060
+  - enabled: 1
+    path: Assets/Scenes/Level Backup.unity
+    guid: 798ca1ff39b35cf419bbaaf35f62f24e
   m_configObjects: {}
