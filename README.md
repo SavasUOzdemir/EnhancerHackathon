@@ -4,10 +4,10 @@ Team 8
 
 ## Team Members
 
-Gökçe Yalçınkaya | Artist
-İpek Özkuyumcu | Game Designer
-Utku Fişek | Game Designer / Animator
-Savaş U. Özdemir | Game Developer
+- Gökçe Yalçınkaya | Artist <br>
+- İpek Özkuyumcu | Game Designer <br>
+- Utku Fişek | Game Designer / Animator <br>
+- Savaş U. Özdemir | Game Developer <br>
 
 ## Short Description
 This game is a puzzle-oriented platformer that is structured in the form of a metroidvania. Character controls are WASD as well as Spacebar.
