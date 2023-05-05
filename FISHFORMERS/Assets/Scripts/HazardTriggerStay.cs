@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HazardTriggerStay : MonoBehaviour
 {
-    [SerializeField] int damageAmount = 2;
-    [SerializeField] float damageInterval = 1f;
+    [SerializeField] int damageAmount = 15;
+    [SerializeField] float damageInterval = .7f;
 
     PlayerStats playerStats;
     Coroutine damageCoroutine;
